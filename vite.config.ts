@@ -9,7 +9,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['svelte', 'svelte/internal'], // 특정 라이브러리 분리
         },
       },
     },
