@@ -15,9 +15,9 @@
     import  ion  from "/src/public/element/otherthing/otherelement/ion2.png";
     import  bod  from "/src/public/element/otherthing/otherelement/bod2.png";
     import  juice  from "/src/public/element/otherthing/otherelement/juice2.png";
-    import  water  from "/src/public/element/otherthing/otherelement/water2.PNG";
-    import  milk  from "/src/public/element/otherthing/otherelement/milk2.PNG";
-    import  yorg  from "/src/public/element/otherthing/otherelement/yorg2.PNG";
+    import  water  from "/src/public/element/otherthing/otherelement/water2.png";
+    import  milk  from "/src/public/element/otherthing/otherelement/milk2.png";
+    import  yorg  from "/src/public/element/otherthing/otherelement/yorg2.png";
 
     let selectedIngredient = null;
     let id1 = null;
