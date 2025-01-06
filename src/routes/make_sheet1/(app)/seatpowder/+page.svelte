@@ -18,7 +18,6 @@
 
 	let selectedpowder = null;
 	let selectedbutter = null;
-
 	let id = null;
 
 	function updateBowlImage(imageSrc) {
