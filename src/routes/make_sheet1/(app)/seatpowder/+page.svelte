@@ -1,91 +1,90 @@
 <script>
-	// @ts-nocheck
+// @ts-nocheck
 
-	import  imageUrl1  from '/src/public/element/otherthing/otherelement/background.png';
-	import  imageUrl2  from '/src/public/element/otherthing/otherelement/nextbotten.png';
-	import imageUrl3  from '/src/public/element/otherthing/otherelement/fly.png';
-	import  imageUrl4  from '/src/public/element/otherthing/otherelement/default.png';
-	import  imageUrl5  from "/src/public/element/otherthing/otherelement/nodelete.png";
-	import  imageUrl6  from '/src/public/element/otherthing/otherelement/nodelete1.png';
+import imageUrl1 from '/src/public/element/otherthing/otherelement/background.png';
+import imageUrl2 from '/src/public/element/otherthing/otherelement/nextbotten.png';
+import imageUrl3 from '/src/public/element/otherthing/otherelement/fly.png';
+import imageUrl4 from '/src/public/element/otherthing/otherelement/default.png';
+import imageUrl5 from "/src/public/element/otherthing/otherelement/nodelete.png";
+import imageUrl6 from '/src/public/element/otherthing/otherelement/nodelete1.png';
 
-	import  strong  from '/src/public/element/otherthing/otherelement/strong.png';
-	import  middle  from '/src/public/element/otherthing/otherelement/middle.png';
-	import  park  from '/src/public/element/otherthing/otherelement/park.png';
-	
-	import  butter  from '/src/public/element/otherthing/otherelement/butter-nuki.png';
-	import  margarine  from '/src/public/element/otherthing/otherelement/margarine.png';
-	
+import strong from '/src/public/element/otherthing/otherelement/strong.png';
+import middle from '/src/public/element/otherthing/otherelement/middle.png';
+import park from '/src/public/element/otherthing/otherelement/park.png';
 
-	let selectedpowder = null;
-	let selectedbutter = null;
-	let id = null;
+import butter from '/src/public/element/otherthing/otherelement/butter-nuki.png';
+import margarine from '/src/public/element/otherthing/otherelement/margarine.png';
 
-	function updateBowlImage(imageSrc) {
-		document.querySelector('.default').src = imageSrc;
-	}
+// 추가적인 이미지 import
+import warning1 from '/src/public/element/otherthing/otherelement/warning1.png';
+import powderwarning from '/src/public/element/otherthing/otherelement/powderwarning.png';
+import miiwarning from '/src/public/element/otherthing/otherelement/miiwarning.png';
 
-	function addBowlImage(imageSrcc) {
-		document.querySelector('.on1').src = imageSrcc;
-	}
+// 이미지 매핑 객체 생성
+const powderImages = {
+    'strong': strong,
+    'middle': middle,
+    'park': park
+};
 
-	function selectpowder(powderId) {
-		selectedpowder = powderId;
-		updateBowlImage(`/src/public/element/otherthing/otherelement/${powderId}.png`);
-	}
+const butterImages = {
+    'butter-nuki': butter,
+    'margarine': margarine
+};
 
-	function selectbutter(butterId) {
-		selectedbutter = butterId;
-		addBowlImage(`/src/public/element/otherthing/otherelement/${butterId}.png`);
-	}
+let selectedpowder = null;
+let selectedbutter = null;
+let id = null;
 
+function updateBowlImage(imageSrc) {
+    document.querySelector('.default').src = imageSrc;
+}
 
-	function go() {
-		if (selectedbutter == null && selectedpowder == null) {
-			document.querySelector('.on2').src =
-				'/src/public/element/otherthing/otherelement/warning1.png';
-			setTimeout(function () {
-				document.querySelector('.on2').src =
-					'/src/public/element/otherthing/otherelement/nodelete1.png';
-			}, 1000);
-		} else if (selectedbutter != null && selectedpowder == null) {
-			document.querySelector('.on2').src =
-				'/src/public/element/otherthing/otherelement/powderwarning.png';
-			setTimeout(function () {
-				document.querySelector('.on2').src =
-					'/src/public/element/otherthing/otherelement/nodelete1.png';
-			}, 1000);
-		} else if (selectedbutter == null && selectedpowder != null) {
-			document.querySelector('.on2').src =
-				'/src/public/element/otherthing/otherelement/miiwarning.png';
-			setTimeout(function () {
-				document.querySelector('.on2').src =
-					'/src/public/element/otherthing/otherelement/nodelete1.png';
-			}, 1000);
-		} else if (selectedbutter != null && selectedpowder != null) {
-			if (selectedpowder === 'strong') {
-				if (selectedbutter === 'butter-nuki') {
-					id = 'strongbutter';
-				} else {
-					id = 'strongmargarine';
-				}
-			}
-			if (selectedpowder === 'middle') {
-				if (selectedbutter === 'butter-nuki') {
-					id = 'middlebutter';
-				} else {
-					id = 'middlemargarine';
-				}
-			}
-			if (selectedpowder === 'park') {
-				if (selectedbutter === 'butter-nuki') {
-					id = 'parkbutter';
-				} else {
-					id = 'parkmargarine';
-				}
-			}
-			window.location.href = `/make_sheet2?id=${id}`;
-		}
-	}
+function addBowlImage(imageSrc) {
+    document.querySelector('.on1').src = imageSrc;
+}
+
+function selectpowder(powderId) {
+    selectedpowder = powderId;
+    updateBowlImage(powderImages[powderId]);
+}
+
+function selectbutter(butterId) {
+    selectedbutter = butterId;
+    addBowlImage(butterImages[butterId]);
+}
+
+function go() {
+    const warningElement = document.querySelector('.on2');
+    
+    if (selectedbutter == null && selectedpowder == null) {
+        warningElement.src = warning1;
+        setTimeout(() => {
+            warningElement.src = imageUrl6; // nodelete1.png
+        }, 1000);
+    } else if (selectedbutter != null && selectedpowder == null) {
+        warningElement.src = powderwarning;
+        setTimeout(() => {
+            warningElement.src = imageUrl6; // nodelete1.png
+        }, 1000);
+    } else if (selectedbutter == null && selectedpowder != null) {
+        warningElement.src = miiwarning;
+        setTimeout(() => {
+            warningElement.src = imageUrl6; // nodelete1.png
+        }, 1000);
+    } else if (selectedbutter != null && selectedpowder != null) {
+        if (selectedpowder === 'strong') {
+            id = selectedbutter === 'butter-nuki' ? 'strongbutter' : 'strongmargarine';
+        }
+        if (selectedpowder === 'middle') {
+            id = selectedbutter === 'butter-nuki' ? 'middlebutter' : 'middlemargarine';
+        }
+        if (selectedpowder === 'park') {
+            id = selectedbutter === 'butter-nuki' ? 'parkbutter' : 'parkmargarine';
+        }
+        window.location.href = `/make_sheet2?id=${id}`;
+    }
+}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
