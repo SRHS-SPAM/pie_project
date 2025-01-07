@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 	//커밋
-	const background = '/src/public/element/otherthing/otherelement/background.png';
+	import background from '/src/public/element/otherthing/otherelement/background.png';
 
 	import dulapplecookie from '/src/public/element/cookie/dul-cookie/apple-cookie2.png'
 	import dulblueberrycookie from '/src/public/element/cookie/dul-cookie/blueberry-cookie2.png'
@@ -239,7 +239,7 @@
 		}
 	];
 
-	const next_button = '/src/public/element/otherthing/otherelement/nextbotten.png';
+	import next_button from '/src/public/element/otherthing/otherelement/nextbotten.png';
 	const bowl = '/src/public/element/otherthing/otherelement/what.png';
 
 	import { page } from '$app/stores';

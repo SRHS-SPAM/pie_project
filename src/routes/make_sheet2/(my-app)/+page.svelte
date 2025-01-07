@@ -21,14 +21,21 @@
     import milk from "/src/public/element/otherthing/otherelement/milk2.png";
     import yorg from "/src/public/element/otherthing/otherelement/yorg2.png";
     
+    import bowl_powder3_maga from "/src/public/element/otherthing/otherelement/bowl_powder3_maga.png";
+    import bowl_powder3_butter from "/src/public/element/otherthing/otherelement/bowl_powder3_butter.png";
+    import bowl_powder1_butter from "/src/public/element/otherthing/otherelement/bowl_powder1_butter.png";
+    import bowl_powder1_maga from "/src/public/element/otherthing/otherelement/bowl_powder1_maga.png";
+    import bowl_powder2_butter from "/src/public/element/otherthing/otherelement/bowl_powder2_butter.png";
+    import bowl_powder2_maga from "/src/public/element/otherthing/otherelement/bowl_powder2_maga.png";
+
     // 그릇 이미지 매핑
     const bowlImages = {
-        'parkmargarine': `${ASSETS_PREFIX}/bowl_powder3_maga.png`,
-        'parkbutter': `${ASSETS_PREFIX}/bowl_powder3_butter.png`,
-        'strongbutter': `${ASSETS_PREFIX}/bowl_powder1_butter.png`,
-        'strongmargarine': `${ASSETS_PREFIX}/bowl_powder1_maga.png`,
-        'middlebutter': `${ASSETS_PREFIX}/bowl_powder2_butter.png`,
-        'middlemargarine': `${ASSETS_PREFIX}/bowl_powder2_maga.png`
+        'parkmargarine': bowl_powder3_maga,
+        'parkbutter': bowl_powder3_butter,
+        'strongbutter': bowl_powder1_butter,
+        'strongmargarine': bowl_powder1_maga,
+        'middlebutter': bowl_powder2_butter,
+        'middlemargarine': bowl_powder2_maga
     };
     
     // 액체 매핑
