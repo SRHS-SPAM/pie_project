@@ -1,77 +1,80 @@
 <script>
-// @ts-nocheck
+    // @ts-nocheck
     import { page } from '$app/stores';
     import { onMount } from 'svelte';   
-    import  background1  from "/src/public/element/otherthing/otherelement/background.png";
-    import  next_button  from "/src/public/element/otherthing/otherelement/nextbotten.png";
-    import  bowl  from  "/src/public/element/otherthing/otherelement/what.png";
-    import  ganpan  from "/src/public/element/otherthing/otherelement/piesokmandulgi.png";
-    import  dot1  from "/src/public/element/otherthing/otherelement/nodelete1.png";
-    import  warn  from "/src/public/element/otherthing/otherelement/waring_main.png";
-    let ingredient = null;
-
-    import  apple  from "/src/public/element/otherthing/otherelement/bowlapple.png";
-    import  berry  from "/src/public/element/otherthing/otherelement/bowlberry.png";
-    import  mint  from "/src/public/element/otherthing/otherelement/bowlmincho.png";
-    import  inseon  from "/src/public/element/otherthing/otherelement/bowlinseon.png";
-    import  pump  from "/src/public/element/otherthing/otherelement/bowlpump.png";
-    import  spam  from "/src/public/element/otherthing/otherelement/bowlspam.png";
-    import  meat  from "/src/public/element/otherthing/otherelement/bowlmeat.png";
-
-
+    import background1 from "/src/public/element/otherthing/otherelement/background.png";
+    import next_button from "/src/public/element/otherthing/otherelement/nextbotten.png";
+    import bowl from "/src/public/element/otherthing/otherelement/what.png";
+    import ganpan from "/src/public/element/otherthing/otherelement/piesokmandulgi.png";
+    import dot1 from "/src/public/element/otherthing/otherelement/nodelete1.png";
+    import warn from "/src/public/element/otherthing/otherelement/waring_main.png";
+    
+    // 재료 이미지 임포트
+    import apple from "/src/public/element/otherthing/otherelement/bowlapple.png";
+    import berry from "/src/public/element/otherthing/otherelement/bowlberry.png";
+    import mint from "/src/public/element/otherthing/otherelement/bowlmincho.png";
+    import inseon from "/src/public/element/otherthing/otherelement/bowlinseon.png";
+    import pump from "/src/public/element/otherthing/otherelement/bowlpump.png";
+    import spam from "/src/public/element/otherthing/otherelement/bowlspam.png";
+    import meat from "/src/public/element/otherthing/otherelement/bowlmeat.png";
+    
+    // 재료 매핑
+    const ingredientImages = {
+        'bowlapple': apple,
+        'bowlberry': berry,
+        'bowlmincho': mint,
+        'bowlinseon': inseon,
+        'bowlpump': pump,
+        'bowlspam': spam,
+        'bowlmeat': meat
+    };
+    
+    const ingredientIds = {
+        'bowlapple': 'apple',
+        'bowlinseon': 'inseon',
+        'bowlberry': 'blueberry',
+        'bowlmincho': 'mintchoco',
+        'bowlmeat': 'meat',
+        'bowlpump': 'pump',
+        'bowlspam': 'spam'
+    };
+    
     let selectedIngredient = null;
-    let selectedIngredient2 = null;
     let id;
     let id_liquid;
     let id_main;
+    
     function updateIngredientImage(ingredient) {
         selectedIngredient = ingredient;
-        document.querySelector('.main').src = `/src/public/element/otherthing/otherelement/${ingredient}.png`;
+        document.querySelector('.main').src = ingredientImages[ingredient];
     }
-//id를 받아옵시다. 순서: water, milk, juice, 
-        onMount(() => {
-    const queryParams = new URLSearchParams($page.url.search);
-    id = queryParams.get('id');
-    id_liquid = queryParams.get('id_liquid');
+    
+    onMount(() => {
+        const queryParams = new URLSearchParams($page.url.search);
+        id = queryParams.get('id');
+        id_liquid = queryParams.get('id_liquid');
     });
-
     
-
-    
-function send() {
-    if (selectedIngredient != null) {
-        if (selectedIngredient === 'bowlapple') {
-            id_main = "apple";
-        } else if (selectedIngredient === 'bowlinseon') {
-            id_main = "inseon";
-        } else if (selectedIngredient === 'bowlberry') {
-            id_main = "blueberry";
-        } else if (selectedIngredient === 'bowlmincho') {
-            id_main = "mintchoco";
-        } else if (selectedIngredient === 'bowlmeat') {
-            id_main = "meat";
-        } else if (selectedIngredient === 'bowlpump') {
-            id_main = 'pump';
-        } else if (selectedIngredient === 'bowlspam') {
-            id_main = 'spam';
+    function send() {
+        if (selectedIngredient) {
+            id_main = ingredientIds[selectedIngredient];
         }
     }
-}
-bowl
-    function go()  {
+    
+    function go() {
         send();
-        if(selectedIngredient == null){
-            document.querySelector('.dot').src = "/src/public/element/otherthing/otherelement/waring_main.png";
-            setTimeout(function(){
-                document.querySelector('.dot').src = "/src/public/element/otherthing/otherelement/nodelete1.png";
+        const dotElement = document.querySelector('.dot');
+        
+        if (!selectedIngredient) {
+            dotElement.src = warn;
+            setTimeout(() => {
+                dotElement.src = dot1;
             }, 1500);
-        }
-        else {
-            window.location.href = (`/oven?id=${id}&id_liquid=${id_liquid}&main_ingredient=${id_main}`);
+        } else {
+            window.location.href = `/oven?id=${id}&id_liquid=${id_liquid}&main_ingredient=${id_main}`;
         }
     }
-</script>
-
+    </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">

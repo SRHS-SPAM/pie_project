@@ -1,93 +1,91 @@
 <script>
-// @ts-nocheck    
+    // @ts-nocheck    
     import { page } from '$app/stores';
     import { onMount } from 'svelte';
-    import  background1  from "/src/public/element/otherthing/otherelement/background.png";
-    import  next_button  from "/src/public/element/otherthing/otherelement/nextbotten.png";
-    import  bowl  from "/src/public/element/otherthing/otherelement/nodelete.png";
-    import  ganpan  from "/src/public/element/otherthing/otherelement/piesokmandulgi.png";
-    import  dot1  from "/src/public/element/otherthing/otherelement/nodelete1.png";
-    import  dot2  from "/src/public/element/otherthing/otherelement/nodelete1.png";
-    import  warn  from  "/src/public/element/otherthing/otherelement/liquid_warn.png";
-    let ingredient = null;
-    let selectedliquid = null;
-
-    import  ion  from "/src/public/element/otherthing/otherelement/ion2.png";
-    import  bod  from "/src/public/element/otherthing/otherelement/bod2.png";
-    import  juice  from "/src/public/element/otherthing/otherelement/juice2.png";
-    import  water  from "/src/public/element/otherthing/otherelement/water2.png";
-    import  milk  from "/src/public/element/otherthing/otherelement/milk2.png";
-    import  yorg  from "/src/public/element/otherthing/otherelement/yorg2.png";
-
+    import background1 from "/src/public/element/otherthing/otherelement/background.png";
+    import next_button from "/src/public/element/otherthing/otherelement/nextbotten.png";
+    import bowl from "/src/public/element/otherthing/otherelement/nodelete.png";
+    import ganpan from "/src/public/element/otherthing/otherelement/piesokmandulgi.png";
+    import dot1 from "/src/public/element/otherthing/otherelement/nodelete1.png";
+    import dot2 from "/src/public/element/otherthing/otherelement/nodelete.png";
+    import warn from "/src/public/element/otherthing/otherelement/liquid_warn.png";
+    
+    // 액체 이미지 임포트
+    import ion from "/src/public/element/otherthing/otherelement/ion2.png";
+    import bod from "/src/public/element/otherthing/otherelement/bod2.png";
+    import juice from "/src/public/element/otherthing/otherelement/juice2.png";
+    import water from "/src/public/element/otherthing/otherelement/water2.png";
+    import milk from "/src/public/element/otherthing/otherelement/milk2.png";
+    import yorg from "/src/public/element/otherthing/otherelement/yorg2.png";
+    
+    // 그릇 이미지 매핑
+    const bowlImages = {
+        'parkmargarine': '/src/public/element/otherthing/otherelement/bowl_powder3_maga.png',
+        'parkbutter': '/src/public/element/otherthing/otherelement/bowl_powder3_butter.png',
+        'strongbutter': '/src/public/element/otherthing/otherelement/bowl_powder1_butter.png',
+        'strongmargarine': '/src/public/element/otherthing/otherelement/bowl_powder1_maga.png',
+        'middlebutter': '/src/public/element/otherthing/otherelement/bowl_powder2_butter.png',
+        'middlemargarine': '/src/public/element/otherthing/otherelement/bowl_powder2_maga.png'
+    };
+    
+    // 액체 매핑
+    const liquidImages = {
+        'ion2': ion,
+        'milk2': milk,
+        'water2': water,
+        'bod2': bod,
+        'juice2': juice,
+        'yorg2': yorg
+    };
+    
+    const liquidIds = {
+        'ion2': 'ion',
+        'milk2': 'milk',
+        'water2': 'water',
+        'bod2': 'vodka',
+        'juice2': 'juice',
+        'yorg2': 'yorg'
+    };
+    
     let selectedIngredient = null;
-    let id1 = null;
-    let id_liquid;
-    let id;
-    let showImage = false;
-//id 받아오기
+    let selectedliquid = null;
+    let id = null;
+    let id_liquid = null;
+    
     onMount(() => {
-    const queryParams = new URLSearchParams($page.url.search);
-    id = queryParams.get('id');
-    if (id === 'parkmargarine') {
-        document.querySelector('.dot').src = "/src/public/element/otherthing/otherelement/bowl_powder3_maga.png";
-        }
-    else if (id === 'parkbutter') {
-        document.querySelector('.dot').src = "/src/public/element/otherthing/otherelement/bowl_powder3_butter.png";
-        }
-    else if (id === 'strongbutter') {
-        document.querySelector('.dot').src = "/src/public/element/otherthing/otherelement/bowl_powder1_butter.png";
-        }
-    else if (id === 'strongmargarine') {
-        document.querySelector('.dot').src = "/src/public/element/otherthing/otherelement/bowl_powder1_maga.png";
-        }
-    else if (id === 'middlebutter') {
-        document.querySelector('.dot').src = "/src/public/element/otherthing/otherelement/bowl_powder2_butter.png";
-        }
-    else if (id === 'middlemargarine') {
-        document.querySelector('.dot').src = "/src/public/element/otherthing/otherelement/bowl_powder2_maga.png";
+        const queryParams = new URLSearchParams($page.url.search);
+        id = queryParams.get('id');
+        const dotElement = document.querySelector('.dot');
+        if (dotElement && bowlImages[id]) {
+            dotElement.src = bowlImages[id];
         }
     });
-
-
-
-
-function updateIngredientImage(ingredient) {
-    selectedIngredient = ingredient;
-    selectedliquid = ingredient;
-    document.querySelector('.bowl').src = `/src/public/element/otherthing/otherelement/${ingredient}.png`;
-}
-//id 보내기 생성
-function send() {
-    if (selectedliquid != null) {
-        if (selectedliquid === 'ion2') {
-            id_liquid = "ion";
-        } else if (selectedliquid === 'milk2') {
-            id_liquid = "milk";
-        } else if (selectedliquid === 'water2') {
-            id_liquid = "water";
-        } else if (selectedliquid === 'bod2') {
-            id_liquid = "vodka";
-        } else if (selectedliquid === 'juice2') {
-            id_liquid = "juice";
-        } else if (selectedliquid === 'yorg2') {
-            id_liquid = 'yorg';
+    
+    function updateIngredientImage(ingredient) {
+        selectedIngredient = ingredient;
+        selectedliquid = ingredient;
+        document.querySelector('.bowl').src = liquidImages[ingredient];
+    }
+    
+    function send() {
+        if (selectedliquid) {
+            id_liquid = liquidIds[selectedliquid];
         }
     }
-}
-
-function go() {
-    send();
-    if (selectedIngredient == null) {
-        document.querySelector('.dot2').src = "/src/public/element/otherthing/otherelement/liquid_warn.png";
-        setTimeout(function () {
-            document.querySelector('.dot2').src = "/src/public/element/otherthing/otherelement/nodelete1.png";
-        }, 1500);
-    } else {
-        window.location.href = `make_sheet2/ingredient/main_ingre?id=${id}&id_liquid=${id_liquid}`;
+    
+    function go() {
+        send();
+        const dot2Element = document.querySelector('.dot2');
+        
+        if (!selectedIngredient) {
+            dot2Element.src = warn;
+            setTimeout(() => {
+                dot2Element.src = dot1;
+            }, 1500);
+        } else {
+            window.location.href = `make_sheet2/ingredient/main_ingre?id=${id}&id_liquid=${id_liquid}`;
+        }
     }
-}
-
-
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,10 +250,6 @@ function go() {
         rgba(0, 0, 0, 0)
         )
     }
-    .selected {
-        background-color: #FDFECF;
-        border: 4px solid yellow;
-    }
 
     
 
@@ -297,13 +291,13 @@ function go() {
 
 
 /*버튼 반짝*/
-    .ion:hover, .bod:hover, .milk:hover, .water:hover, .juice:hover, .yorg:hover,
-    .ion:active, .bod:active, .milk:active, .water:active, .juice:active, .yorg:active 
+    .ion:hover, .bod:hover, .milk:hover, .water:hover, .juice:hover, .yorg:hover
     {
         background-color: #FDFECF;
         border: 4px solid yellow;
     }
-    .selected {
+
+    .ion:active, .bod:active, .milk:active, .water:active, .juice:active, .yorg:active {
         background-color: #FDFECF;
         border: 4px solid yellow;
     }

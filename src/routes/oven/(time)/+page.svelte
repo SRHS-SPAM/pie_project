@@ -2,78 +2,55 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-
+	
 	import background from "/src/public/element/otherthing/otherelement/background.png";
 	import next from '/src/public/element/otherthing/otherelement/nextbotten.png';
-	import chep  from '/src/public/element/otherthing/otherelement/파이굽기 간판.png';
-	import  oven  from '/src/public/element/otherthing/otherelement/oven.png';
-	import  danger  from '/src/public/element/otherthing/otherelement/choseoven.png';
-
-	let selectedtime = '';
+	import chep from '/src/public/element/otherthing/otherelement/파이굽기 간판.png';
+	import oven from '/src/public/element/otherthing/otherelement/oven.png';
+	import danger from '/src/public/element/otherthing/otherelement/choseoven.png';
+	
+	const ovenImages = {
+		'thr': '/src/public/element/otherthing/otherelement/oven1.png',
+		'one': '/src/public/element/otherthing/otherelement/oven2.png',
+		'onethr': '/src/public/element/otherthing/otherelement/oven3.png',
+		'eig': '/src/public/element/otherthing/otherelement/oven4.png'
+	};
+	
+	const timeMapping = {
+		'thr': '0:30',
+		'one': '1:00',
+		'onethr': '1:30',
+		'eig': '8:00'
+	};
+	
+	let selectedtime: any = '';
 	let showWarning = false;
-
+	let id: any | null = null;
+	let id_liquid: any | null = null;
+	let main_ingredient: any | null = null;
+	
 	function select(timeId: string) {
-    console.log('Selected time: ', timeId);
-    selectedtime = timeId;
-
-    const ovenElement = document.querySelector('.oven');
-
-    if (ovenElement instanceof HTMLImageElement) {
-        if (timeId == 'thr') {
-            ovenElement.src = '/src/public/element/otherthing/otherelement/oven1.png';
-        } 
-		else if (timeId == 'one') {
-            ovenElement.src = '/src/public/element/otherthing/otherelement/oven2.png';
-        } 
-		else if (timeId == 'onethr') {
-            ovenElement.src = '/src/public/element/otherthing/otherelement/oven3.png';
-        } 
-		else if (timeId == 'eig') {
-            ovenElement.src = '/src/public/element/otherthing/otherelement/oven4.png';
-        }
-    }
-}
-
-	let id = null;
-	let id_liquid = null;
-	let main_ingredient = null;
-
+		console.log('Selected time: ', timeId);
+		selectedtime = timeId;
+	
+		const ovenElement = document.querySelector('.oven');
+		if (ovenElement instanceof HTMLImageElement && ovenImages[timeId]) {
+			ovenElement.src = ovenImages[timeId];
+		}
+	}
+	
 	onMount(() => {
-		const url = new URL(window.location.href);
-
-		const pathId = window.location.pathname.split('/').pop();
-		const queryId = url.searchParams.get('id');
-
-		id = pathId || queryId || 'No ID Provided';
-
-		sessionStorage.setItem('currentURL', window.location.href);
-
-		const queryParams = new URLSearchParams($page.url.search);
-		id = queryParams.get('id');
-		id_liquid = queryParams.get('id_liquid');
-	});
-
-	async function showDan() {
 		const queryParams = new URLSearchParams($page.url.search);
 		id = queryParams.get('id');
 		id_liquid = queryParams.get('id_liquid');
 		main_ingredient = queryParams.get('main_ingredient');
-
-		if (selectedtime == 'thr') {
+		sessionStorage.setItem('currentURL', window.location.href);
+	});
+	
+	async function showDan() {
+		if (selectedtime && timeMapping[selectedtime]) {
 			await goto(
-				`result?id=${id}&id_liquid=${id_liquid}&main_ingredient=${main_ingredient}&selectedtime=0:30`
-			);
-		} else if (selectedtime == 'one') {
-			await goto(
-				`result?id=${id}&id_liquid=${id_liquid}&main_ingredient=${main_ingredient}&selectedtime=1:00`
-			);
-		} else if (selectedtime == 'onethr') {
-			await goto(
-				`result?id=${id}&id_liquid=${id_liquid}&main_ingredient=${main_ingredient}&selectedtime=1:30`
-			);
-		} else if (selectedtime == 'eig') {
-			await goto(
-				`result?id=${id}&id_liquid=${id_liquid}&main_ingredient=${main_ingredient}&selectedtime=8:00`
+				`result?id=${id}&id_liquid=${id_liquid}&main_ingredient=${main_ingredient}&selectedtime=${timeMapping[selectedtime]}`
 			);
 		} else {
 			showWarning = true;
@@ -82,8 +59,6 @@
 			}, 3000);
 		}
 	}
-
-
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
