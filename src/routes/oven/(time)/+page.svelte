@@ -2,6 +2,8 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+
+	const ASSETS_PREFIX = '/src/public/element/otherthing/otherelement';
 	
 	import background from "/src/public/element/otherthing/otherelement/background.png";
 	import next from '/src/public/element/otherthing/otherelement/nextbotten.png';
@@ -10,10 +12,10 @@
 	import danger from '/src/public/element/otherthing/otherelement/choseoven.png';
 	
 	const ovenImages = {
-		'thr': '/src/public/element/otherthing/otherelement/oven1.png',
-		'one': '/src/public/element/otherthing/otherelement/oven2.png',
-		'onethr': '/src/public/element/otherthing/otherelement/oven3.png',
-		'eig': '/src/public/element/otherthing/otherelement/oven4.png'
+		'thr': `${ASSETS_PREFIX}/oven1.png`,
+		'one': `${ASSETS_PREFIX}/oven2.png`,
+		'onethr': `${ASSETS_PREFIX}/oven3.png`,
+		'eig': `${ASSETS_PREFIX}/oven4.png`
 	};
 	
 	const timeMapping = {

@@ -2,6 +2,9 @@
     // @ts-nocheck    
     import { page } from '$app/stores';
     import { onMount } from 'svelte';
+
+    const ASSETS_PREFIX = '/src/public/element/otherthing/otherelement';
+
     import background1 from "/src/public/element/otherthing/otherelement/background.png";
     import next_button from "/src/public/element/otherthing/otherelement/nextbotten.png";
     import bowl from "/src/public/element/otherthing/otherelement/nodelete.png";
@@ -20,12 +23,12 @@
     
     // 그릇 이미지 매핑
     const bowlImages = {
-        'parkmargarine': '/src/public/element/otherthing/otherelement/bowl_powder3_maga.png',
-        'parkbutter': '/src/public/element/otherthing/otherelement/bowl_powder3_butter.png',
-        'strongbutter': '/src/public/element/otherthing/otherelement/bowl_powder1_butter.png',
-        'strongmargarine': '/src/public/element/otherthing/otherelement/bowl_powder1_maga.png',
-        'middlebutter': '/src/public/element/otherthing/otherelement/bowl_powder2_butter.png',
-        'middlemargarine': '/src/public/element/otherthing/otherelement/bowl_powder2_maga.png'
+        'parkmargarine': `${ASSETS_PREFIX}/bowl_powder3_maga.png`,
+        'parkbutter': `${ASSETS_PREFIX}/bowl_powder3_butter.png`,
+        'strongbutter': `${ASSETS_PREFIX}/bowl_powder1_butter.png`,
+        'strongmargarine': `${ASSETS_PREFIX}/bowl_powder1_maga.png`,
+        'middlebutter': `${ASSETS_PREFIX}/bowl_powder2_butter.png`,
+        'middlemargarine': `${ASSETS_PREFIX}/bowl_powder2_maga.png`
     };
     
     // 액체 매핑
