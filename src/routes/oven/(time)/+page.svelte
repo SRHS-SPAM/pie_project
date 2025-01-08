@@ -17,10 +17,10 @@
 	import eig from `/src/public/element/otherthing/otherelement/oven4.png`;
 	
 	const ovenImages = {
-		'thr': thr,
-		'one': one,
-		'onethr': onethr,
-		'eig': eig,
+		thr : thr,
+		one : one,
+		onethr: onethr,
+		eig: eig,
 	};
 	
 	const timeMapping = {
