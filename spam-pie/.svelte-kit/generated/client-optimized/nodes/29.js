@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(pie-story)/bread/normal/blueberry-bread/[blueberryId]/+page.svelte";

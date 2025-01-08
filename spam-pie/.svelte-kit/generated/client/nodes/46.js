@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(pie-story)/bread/tan/mincho-bread/[minchoId]/+page.svelte";

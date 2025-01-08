@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(ending-story)/storyss/bad/bad2/+page.svelte";

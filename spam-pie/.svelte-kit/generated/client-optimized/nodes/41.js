@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(pie-story)/bread/strange/spam-bread/[spamId]/+page.svelte";

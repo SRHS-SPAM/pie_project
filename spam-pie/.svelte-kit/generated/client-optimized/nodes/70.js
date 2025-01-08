@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(pie-story)/cookie/strange/spam-cookie/[spamId]/+page.svelte";

@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(pie-story)/cookie/normal/apple-cookie/[appleId]/+page.svelte";

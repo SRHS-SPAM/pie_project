@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(pie-story)/pie/tan/apple-pie/[appleId]/+page.svelte";

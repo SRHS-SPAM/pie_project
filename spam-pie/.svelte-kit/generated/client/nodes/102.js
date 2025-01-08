@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(pie-story)/pumpkin-pie/[pumpkinId]/+page.svelte";

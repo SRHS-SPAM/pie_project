@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/make_sheet1/(app)/seatpowder/+page.svelte";

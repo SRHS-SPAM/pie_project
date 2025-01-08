@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(pie-story)/cookie/normal/herring-cookie/[herringId]/+page.svelte";

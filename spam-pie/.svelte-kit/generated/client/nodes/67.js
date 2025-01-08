@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(pie-story)/cookie/strange/meat-cookie/[meatId]/+page.svelte";

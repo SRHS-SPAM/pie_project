@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/make_sheet2/ingredient/main_ingre/+page.svelte";

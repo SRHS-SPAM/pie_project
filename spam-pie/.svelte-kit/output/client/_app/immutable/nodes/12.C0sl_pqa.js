@@ -1,0 +1,1 @@
+import"../chunks/disclose-version.Bg9kRutz.js";import"../chunks/legacy.DYqa7g_C.js";import{a as r,t as e,n as o}from"../chunks/vendor.e_0P48yf.js";var s=e('<a href="/storyss/bad/bad1">배드엔딩</a> <a href="/storyss/best/best1">좋은엔딩</a>',1);function f(a){var t=s();o(2),r(a,t)}export{f as component};
