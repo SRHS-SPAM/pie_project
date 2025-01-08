@@ -11,16 +11,16 @@
 	import oven from '/src/public/element/otherthing/otherelement/oven.png';
 	import danger from '/src/public/element/otherthing/otherelement/choseoven.png';
 	
-	import thr from `${ASSETS_PREFIX}/oven1.png`;
-	import one from `${ASSETS_PREFIX}/oven2.png`;
-	import onethr from `${ASSETS_PREFIX}/oven3.pn;g`;
-	import eig from `${ASSETS_PREFIX}/oven4.png`;
+	import thr from `/src/public/element/otherthing/otherelement/oven1.png`;
+	import one from `/src/public/element/otherthing/otherelement/oven2.png`;
+	import onethr from `/src/public/element/otherthing/otherelement/oven3.pn;g`;
+	import eig from `/src/public/element/otherthing/otherelement/oven4.png`;
 	
 	const ovenImages = {
-		'thr': thr
-		'one': one
-		'onethr': onethr
-		'eig': eig
+		'thr': thr,
+		'one': one,
+		'onethr': onethr,
+		'eig': eig,
 	};
 	
 	const timeMapping = {
