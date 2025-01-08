@@ -1,7 +1,7 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
-		"types": ["svelte"],
+		"types": ["svelte", "node", "vite/client"], // Vite 타입 선언 추가
 		"allowJs": true,
 		"checkJs": true,
 		"esModuleInterop": true,
