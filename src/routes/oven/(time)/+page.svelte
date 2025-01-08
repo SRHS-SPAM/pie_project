@@ -17,10 +17,10 @@
 	import eig from `${ASSETS_PREFIX}/oven4.png`;
 	
 	const ovenImages = {
-		'thr': `${ASSETS_PREFIX}/oven1.png`,
-		'one': `${ASSETS_PREFIX}/oven2.png`,
-		'onethr': `${ASSETS_PREFIX}/oven3.png`,
-		'eig': `${ASSETS_PREFIX}/oven4.png`
+		'thr': thr
+		'one': one
+		'onethr': onethr
+		'eig': eig
 	};
 	
 	const timeMapping = {
