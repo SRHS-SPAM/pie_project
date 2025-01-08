@@ -11,6 +11,11 @@
 	import oven from '/src/public/element/otherthing/otherelement/oven.png';
 	import danger from '/src/public/element/otherthing/otherelement/choseoven.png';
 	
+	import thr from `${ASSETS_PREFIX}/oven1.png`;
+	import one from `${ASSETS_PREFIX}/oven2.png`;
+	import onethr from `${ASSETS_PREFIX}/oven3.pn;g`;
+	import eig from `${ASSETS_PREFIX}/oven4.png`;
+	
 	const ovenImages = {
 		'thr': `${ASSETS_PREFIX}/oven1.png`,
 		'one': `${ASSETS_PREFIX}/oven2.png`,
