@@ -6,6 +6,8 @@
     import sto3 from "/src/public/illustration/game-story/3.png";
     import sto4 from "/src/public/illustration/game-story/4.png";
     import sto6 from "/src/public/illustration/game-story/6.png";
+
+    import tu from "/src/public/illustration/미사용/투명.png";
     
     let storyId: number;
 
@@ -15,27 +17,27 @@
         {
             img: sto1,
             text: "치료제가 없는 불치병에 몸서리를 치는 주인공의 가족들.\n 병원비를 지불해야 하는 주인공의 지갑은 점점\n 비어가는데...",
-            tu:"/src/public/illustration/미사용/투명.png"
+            tu: tu
         },
         {
             img: sto2,
             text: "그러던 어느날 기적적으로 가족들의 병을 치료할 수 있는 신약이 개발되지만,\n 이 약을 사기 위해서 주인공은 막대한 돈이 필요했다.",
-            tu:"/src/public/illustration/미사용/투명.png"
+            tu: tu
         },
         {
             img: sto3,
             text: "평소처럼 야간근무를 끝내고 퇴근하던 어느 날.\n 주인공은 막대한 상금이 걸려있는 세계적인 요리대회의\n 참가자 모집 공고를 보고, 상금을 타기위해 대회에 참가한다.",
-            tu:"/src/public/illustration/미사용/투명.png"
+            tu: tu
         },  
         {
             img: sto4,
             text: "집안 대대로 내려져 오던 전설의 파이 레시피를 잘만 사용한다면,\n 우승 따윈 식은 죽 먹기 일테지만...",
-            tu:"/src/public/illustration/미사용/투명.png"
+            tu: tu
         },
         {
             img: sto6,
             text: "어째서인지 파이의 레시피가 잘 기억나지 않는다!\n 주인공은 과연 끝내 파이의 레시피를 기억해내어\n 우승을 거머쥘 수 있을까?",
-            tu:"/src/public/illustration/미사용/투명.png"
+            tu: tu
         }
     ];
 
