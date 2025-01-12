@@ -4,7 +4,7 @@
 
     import img from "/src/public/illustration/미사용/심사위원배경.png";
     import img2 from "/src/public/illustration/미사용/검은사진.jpeg";
-    import pieimg from"/src/public/element/pie/goodpie/pumpkin-pie.png";
+    import pieimg from"/src/public/element/pie/little-pie/pumpkin-pie.png";
     import tu from"/src/public/illustration/미사용/투명.png";
     
     let pumpkinId: number;
