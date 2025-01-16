@@ -190,7 +190,7 @@
     }
     
     .bowl {
-        width: 44%;
+        width: 40%;
         height: auto;
         margin-bottom: 17%;
 
