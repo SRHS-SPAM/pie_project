@@ -123,11 +123,11 @@
 
     .textbox {
         margin-left: 20%;
-        margin-top: 75vh;
+        margin-top: 70vh;
         padding: 5vh;
 
         width: 60%;
-        height: 15vh;
+        height: 20vh;
 
         background-color: black;
         opacity: 0.7;
