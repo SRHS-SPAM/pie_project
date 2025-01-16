@@ -123,7 +123,7 @@
 
     .textbox {
         margin-left: 20%;
-        margin-top: 70vh;
+        margin-top: 75vh;
         padding: 5vh;
 
         width: 60%;
