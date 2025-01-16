@@ -164,6 +164,18 @@
 
 
 <style>
+    :global(html, body) {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		overflow: hidden;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+    
     .allbox{
         width: 100vw;
 		height: 100vh;
@@ -182,7 +194,7 @@
     
     .bowl {
         width: 44%;
-        margin-bottom: 15%;
+        margin-bottom: 17%;
 
         opacity: 0.8;
         
