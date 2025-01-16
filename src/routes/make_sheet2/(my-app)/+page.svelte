@@ -182,7 +182,7 @@
     
     .bowl {
         width: 44%;
-        margin-bottom: 17%;
+        margin-bottom: 15%;
 
         opacity: 0.8;
         
