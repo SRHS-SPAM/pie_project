@@ -3,7 +3,7 @@
     import { goto } from '$app/navigation';
 
     import img from "/src/public/illustration/미사용/심사위원배경.png";
-    import pieimg from"/src/public/element/pie/goodpie/herring-pie.png";
+    import pieimg from"/src/public/element/pie/little-pie/herring-pie.png";
     import tu from"/src/public/illustration/미사용/투명.png";
     import img2 from "/src/public/illustration/미사용/검은사진.jpeg";
     
