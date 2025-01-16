@@ -1,66 +1,68 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
+import { goto } from '$app/navigation';
+import { page } from '$app/stores';
+import { onMount } from 'svelte';
 
-	const ASSETS_PREFIX = '/src/public/element/otherthing/otherelement';
-	
-	import background from "/src/public/element/otherthing/otherelement/background.png";
-	import next from '/src/public/element/otherthing/otherelement/nextbotten.png';
-	import chep from '/src/public/element/otherthing/otherelement/파이굽기 간판.png';
-	import oven from '/src/public/element/otherthing/otherelement/oven.png';
-	import danger from '/src/public/element/otherthing/otherelement/choseoven.png';
-	
-	const ovenImages = {
-		'thr': `${ASSETS_PREFIX}/oven1.png`,
-		'one': `${ASSETS_PREFIX}/oven2.png`,
-		'onethr': `${ASSETS_PREFIX}/oven3.png`,
-		'eig': `${ASSETS_PREFIX}/oven4.png`
-	};
-	
-	const timeMapping = {
-		'thr': '0:30',
-		'one': '1:00',
-		'onethr': '1:30',
-		'eig': '8:00'
-	};
-	
-	let selectedtime: any = '';
-	let showWarning = false;
-	let id: any | null = null;
-	let id_liquid: any | null = null;
-	let main_ingredient: any | null = null;
-	
-	function select(timeId: string) {
-		console.log('Selected time: ', timeId);
-		selectedtime = timeId;
-	
-		const ovenElement = document.querySelector('.oven');
-		if (ovenElement instanceof HTMLImageElement && ovenImages[timeId]) {
-			ovenElement.src = ovenImages[timeId];
-		}
-	}
-	
-	onMount(() => {
-		const queryParams = new URLSearchParams($page.url.search);
-		id = queryParams.get('id');
-		id_liquid = queryParams.get('id_liquid');
-		main_ingredient = queryParams.get('main_ingredient');
-		sessionStorage.setItem('currentURL', window.location.href);
-	});
-	
-	async function showDan() {
-		if (selectedtime && timeMapping[selectedtime]) {
-			await goto(
-				`result?id=${id}&id_liquid=${id_liquid}&main_ingredient=${main_ingredient}&selectedtime=${timeMapping[selectedtime]}`
-			);
-		} else {
-			showWarning = true;
-			setTimeout(() => {
-				showWarning = false;
-			}, 3000);
-		}
-	}
+import oven1 from '/src/public/element/otherthing/otherelement/oven1.png';
+import oven2 from '/src/public/element/otherthing/otherelement/oven2.png';
+import oven3 from '/src/public/element/otherthing/otherelement/oven3.png';
+import oven4 from '/src/public/element/otherthing/otherelement/oven4.png';
+import background from '/src/public/element/otherthing/otherelement/background.png';
+import next from '/src/public/element/otherthing/otherelement/nextbotten.png';
+import chep from '/src/public/element/otherthing/otherelement/파이굽기 간판.png';
+import oven from '/src/public/element/otherthing/otherelement/oven.png';
+import danger from '/src/public/element/otherthing/otherelement/choseoven.png';
+
+const ovenImages: Record<string, string> = {
+    'thr': oven1,
+    'one': oven2,
+    'onethr': oven3,
+    'eig': oven4
+};
+
+const timeMapping: Record<string, string> = {
+    'thr': '0:30',
+    'one': '1:00',
+    'onethr': '1:30',
+    'eig': '8:00'
+};
+
+let selectedtime: string = '';
+let showWarning = false;
+let id: string | null = null;
+let id_liquid: string | null = null;
+let main_ingredient: string | null = null;
+
+function select(timeId: string) {
+    console.log('Selected time: ', timeId);
+    selectedtime = timeId;
+
+    const ovenElement = document.querySelector('.oven');
+    if (ovenElement instanceof HTMLImageElement && ovenImages[timeId]) {
+        ovenElement.src = ovenImages[timeId];
+    }
+}
+
+onMount(() => {
+    const queryParams = new URLSearchParams($page.url.search);
+    id = queryParams.get('id');
+    id_liquid = queryParams.get('id_liquid');
+    main_ingredient = queryParams.get('main_ingredient');
+    sessionStorage.setItem('currentURL', window.location.href);
+});
+
+async function showDan() {
+    if (selectedtime && timeMapping[selectedtime]) {
+        await goto(
+            `result?id=${id}&id_liquid=${id_liquid}&main_ingredient=${main_ingredient}&selectedtime=${timeMapping[selectedtime]}`
+        );
+    } else {
+        showWarning = true;
+        setTimeout(() => {
+            showWarning = false;
+        }, 3000);
+    }
+}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
