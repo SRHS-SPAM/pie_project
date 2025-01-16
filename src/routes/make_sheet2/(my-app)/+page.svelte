@@ -202,6 +202,7 @@
     
     .dot {
         width: 40%;
+        height: auto;
         margin-bottom: 17%;
         position: absolute;
         z-index: 3;
