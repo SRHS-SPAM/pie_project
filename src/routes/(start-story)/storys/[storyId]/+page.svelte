@@ -81,6 +81,17 @@
 {/if}
 
 <style>
+    * {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+    :global(html, body) {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		overflow: hidden;
+	}
     .story {
         margin: 0;
         padding: 0;
