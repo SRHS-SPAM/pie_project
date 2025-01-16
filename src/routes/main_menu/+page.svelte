@@ -24,6 +24,18 @@
 
 
 <style>
+    :global(html, body) {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		overflow: hidden;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+    
     .img{
     height: 100vh;
     width: 100vw; 
