@@ -126,7 +126,7 @@
         margin-top: 75vh;
         padding: 5vh;
 
-        width: 60%;
+        width: 70%;
         height: 20vh;
 
         background-color: black;
